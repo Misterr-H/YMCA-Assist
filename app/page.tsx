@@ -13,11 +13,11 @@ export default function Home() {
 
     const onSend = async (text: string) => {
         const newMessages = [...messages, { text, type: "sent", time: new Date().toLocaleTimeString() }];
-        setMessages(newMessages);
+        setMessages(newMessages as any);
         const response = await fetch(apiUrl + text);
         const data = await response.json();
         const newMessagesWithReply = [...newMessages, { text: data.message, type: "received", time: data.time }];
-        setMessages(newMessagesWithReply);
+        setMessages(newMessagesWithReply as any);
     };
 
   return (
