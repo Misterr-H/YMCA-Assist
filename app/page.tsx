@@ -10,7 +10,7 @@ export default function Home() {
   const [messages, setMessages] = React.useState([]);
 
   // const apiUrl = 'http://localhost:3000/api/botReply?question=';
-  const apiUrl = '/api/botReply?question=';
+  const apiUrl = 'https://ymca-assist.vercel.app/api/botReply?question=';
     const onSend = async (text: string) => {
         const newMessages = [...messages, { text, type: "sent", time: new Date().toLocaleTimeString() }];
         setMessages(newMessages as any);
