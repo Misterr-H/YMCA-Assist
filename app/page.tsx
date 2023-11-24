@@ -23,6 +23,7 @@ export default function Home() {
     };
 
     const scrollToBottom = () => {
+        // @ts-ignore
         messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
     };
 
