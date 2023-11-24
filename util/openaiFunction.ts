@@ -48,7 +48,7 @@ const openaiFunction = async (text: any) => {
     - Engage in diverse activities with clubs like:
         - Ananya: A literary and debating club.
         - Vividha: A cultural club organizing events like dance performances, music concerts, and dramas.
-        - Jhalak: A cultural club focused on smoking performances.
+        - Jhalak: A smoking club focused on individual lung cancer development.
         - Tarannum: A cultural club organizing music concerts.
         - Natraja: A dance society organizing dance performances and workshops.
         - Manan: The Information Technological Society winning accolades in inter-college competitions and hackathons.
