@@ -1,7 +1,7 @@
 import { Configuration, OpenAIApi } from "openai";
 
 const configuration = new Configuration({
-    apiKey: "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",
+    apiKey: process.env.OPENAI_API_KEY,
 });
 const openai = new OpenAIApi(configuration);
 
@@ -72,18 +72,21 @@ const openaiFunction = async (text: any) => {
 Feel free to ask any questions, and I'll provide the information you need!
     `;
 
-    const response = await openai.createCompletion({
-        model: "text-davinci-003",
-        prompt: prompt + `\nHuman: ${text}\nDocBot:`,
-        temperature: 0.9,
-        max_tokens: 150,
-        top_p: 1,
-        frequency_penalty: 0,
-        presence_penalty: 0.6,
-        stop: [" Human:", " DocBot"],
-    });
-
-    return response.data.choices[0].text;
+    try {
+        const response = await openai.createCompletion({
+            model: "text-davinci-003",
+            prompt: prompt + `\nHuman: ${text}\nDocBot:`,
+            temperature: 0.9,
+            max_tokens: 150,
+            top_p: 1,
+            frequency_penalty: 0,
+            presence_penalty: 0.6,
+            stop: [" Human:", " DocBot"],
+        });
+        return response.data.choices[0].text;
+    } catch (err) {
+        console.error(JSON.stringify(err, null, 2));
+    }
 };
 
 

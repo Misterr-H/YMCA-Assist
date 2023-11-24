@@ -6,6 +6,9 @@ const MessageEntry = ({ onSend }: any) => {
     const [text, setText] = React.useState("");
     const [isSending, setIsSending] = React.useState(false);
     const handleSend = async () => {
+        if (text === "") {
+            return;
+        }
         setIsSending(true);
         await onSend(text);
         setIsSending(false);
